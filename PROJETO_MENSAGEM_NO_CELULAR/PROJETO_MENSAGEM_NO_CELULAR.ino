@@ -13,7 +13,7 @@ long lastReconnectAttempt = 0;
 void mensagem_mqtt ( char* topic, byte* payload, unsigned int length) {
   char* payload_char = payload;
   payload_char[length] = 0;
-  String payload_string = String (topic);
+  String payload_string = String (payload_char);
   String topic_string = String (topic);
   Serial.println("TOPIC;");
   Serial.println(topic_string);
@@ -22,6 +22,7 @@ void mensagem_mqtt ( char* topic, byte* payload, unsigned int length) {
 }
 EthernetClient ethernet_client;
 PubSubClient pubsub(servidor_mqtt, port_mqtt, mensagem_mqtt, ethernet_client);
+
 boolean reconnect ()
 {
   Serial.print("reconectando");
@@ -50,9 +51,9 @@ void setup() {
   }
   if (pubsub.connect("joao", "hdfojuma" , "9paGPkloSn9u"))
   {
-    Serial.println("conectando");
+   // Serial.println("conectando");
     pubsub.publish("temperatura", "15 grau celsius");
-    Serial.println("temperatura enviada");
+   // Serial.println("temperatura enviada");
     pubsub.subscribe("temperatura");
   }
   else
