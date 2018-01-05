@@ -1,4 +1,4 @@
-#include <UIPEthernet.h>
+﻿#include <UIPEthernet.h>
 #include <PubSubClient.h>
 int buzina = 6;
 int led = 7;
@@ -53,8 +53,8 @@ void setup() {
   {
    // Serial.println("conectando");
     pubsub.publish("temperatura", "15 grau celsius");
-   // Serial.println("temperatura enviada");
-    pubsub.subscribe("temperatura");
+    Serial.println("temperatura enviada");
+    // pubsub.subscribe("temperatura");
   }
   else
   {

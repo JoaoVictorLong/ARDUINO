@@ -32,11 +32,11 @@ int porta_mqtt = 17763;
 
 long lastreconnectAttempt = 0;
 
-void mensagem_mqtt(char* topic, byte* playload, unsigned int length)
+void mensagem_mqtt(char* topic, byte* payload, unsigned int length)
 {
-  char* playload_char = payload;
-  play_char[length] = 0;
-  String playload_string = String 
+  char* payload_char = payload;
+  payload_char[length] = 0;
+  String payload_string = String ;
 }
 
 
